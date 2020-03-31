@@ -39,21 +39,35 @@
 
     <v-content>
       <router-view />
+      {{ userId }}
     </v-content>
   </v-app>
 </template>
-
-<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
 
 <script>
 // import HelloWorld from './components/HelloWorld';
 // import Manager from './components/Manager';
 
+/*globals liff */
 export default {
   name: 'App',
-
-
   data: () => ({
+    userId: null
   }),
+  created : function() {
+    liff
+        .init({
+            liffId: '1654022080-7DwzQZwY'
+        })
+        .then(() => {
+            // start to use LIFF's api
+            // initializeApp();
+            console.log('LIFF initialization successed')
+            this.userId = liff.getContext().userId
+        })
+        .catch((err) => {
+            console.log('LIFF initialization failed', err)
+        });
+  },
 };
 </script>
