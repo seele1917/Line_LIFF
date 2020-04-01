@@ -6,5 +6,6 @@ module.exports = {
   devServer: {
     public: "https://a60c41fb.ngrok.io",
     disableHostCheck: true
-  }
+  },
+  outputDir: 'docs'
 }
