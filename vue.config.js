@@ -3,4 +3,8 @@ module.exports = {
     "vuetify"
   ],
   publicPath: './',
+  devServer: {
+    public: "https://a60c41fb.ngrok.io",
+    disableHostCheck: true
+  }
 }
